@@ -1,31 +1,17 @@
 package main_test
 
 import (
-	"fmt"
+	"io"
 	"os"
-
-	"github.com/benhoyt/go-windows-examples/lib"
+	"runtime"
 )
 
-func Example1() {
-	err := lib.WriteOutput(os.Stdout, "foo\nbar\n")
-	if err != nil {
-		panic(err)
+func Example() {
+	if runtime.GOOS == "windows" {
+		io.WriteString(os.Stdout, "foo\r\nbar\r\n")
+	} else {
+		io.WriteString(os.Stdout, "foo\nbar\n")
 	}
-	// Output:
-	// foo
-	// bar
-}
-
-func Example2() {
-	fmt.Print("foo\nbar\n")
-	// Output:
-	// foo
-	// bar
-}
-
-func Example3() {
-	fmt.Print("foo\r\nbar\r\n")
 	// Output:
 	// foo
 	// bar
