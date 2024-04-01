@@ -10,15 +10,15 @@ jobs:
   build-linux:
     runs-on: ubuntu-latest
 
-    name: Go 1.17 on Linux
+    name: Go 1.22 on Linux
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
 
     - name: Set up Go
-      uses: actions/setup-go@v2
+      uses: actions/setup-go@v4
       with:
-        go-version: "1.17"
+        go-version: "1.22"
 
     - name: Build and Test
       run: |
@@ -27,15 +27,15 @@ jobs:
   build-windows:
     runs-on: windows-latest
 
-    name: Go 1.17 on Windows
+    name: Go 1.22 on Windows
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
 
     - name: Set up Go
-      uses: actions/setup-go@v2
+      uses: actions/setup-go@v4
       with:
-        go-version: "1.17"
+        go-version: "1.22"
 
     - name: Build and Test
       run: |
